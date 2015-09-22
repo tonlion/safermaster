@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+
+    <ImageView
+        android:id="@+id/clear_item_appicon"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:src="@drawable/kb" />
+
+    <CheckBox
+        android:id="@+id/clear_item_isChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="10dp"
+        android:checked="true"
+        android:gravity="center_vertical" />
+
+    <TextView
+        android:id="@+id/clear_item_memorySize"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        android:layout_toLeftOf="@id/clear_item_isChecked"
+        android:gravity="center_vertical|right"
+        android:text="200.00M"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/clear_item_appName"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/clear_item_memorySize"
+        android:layout_toRightOf="@id/clear_item_appicon"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:text="android"
+        android:textSize="16sp" />
+
+</RelativeLayout>
