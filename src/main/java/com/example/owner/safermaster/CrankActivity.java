@@ -1,25 +1,44 @@
 package com.example.owner.safermaster;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.owner.dao.PhoneDao;
-import com.example.owner.dao.SMSDao;
-import com.example.owner.entity.Phone;
-import com.example.owner.entity.SMS;
+import com.example.owner.adapter.FragmentAdapter;
+import com.example.owner.fragment.CrankFragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CrankActivity extends AppCompatActivity {
+
+    private ViewPager pager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crank);
-        SMSDao dao = new SMSDao(this);
-        dao.insertValues(new SMS("10086", "你好", "12:20"));
-        PhoneDao pDao = new PhoneDao(this);
-        pDao.insertValues(new Phone("10086", "null", "null", "null"));
+        pager = (ViewPager) findViewById(R.id.crank_pager);
+        initFragment();
+    }
+
+    private void initFragment() {
+        List<Fragment> fragments = new ArrayList<>();
+        Fragment f = new CrankFragment();
+        Bundle b = new Bundle();
+        b.putInt("type", 0);
+        f.setArguments(b);
+        fragments.add(f);
+        f = new CrankFragment();
+        b = new Bundle();
+        b.putInt("type", 1);
+        f.setArguments(b);
+        fragments.add(f);
+        FragmentAdapter adapter = new FragmentAdapter(getSupportFragmentManager(), fragments);
+        pager.setAdapter(adapter);
     }
 
     @Override
