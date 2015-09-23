@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <TextView
+        android:id="@+id/contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:text="小张"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/contact_number"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/contact_name"
+        android:gravity="center_vertical"
+        android:text="12345678909"
+        android:textSize="16dp" />
+
+    <CheckBox
+        android:id="@+id/contact_check"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:checked="false" />
+</RelativeLayout>

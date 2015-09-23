@@ -30,7 +30,7 @@ public class BlackListDao {
         String sql = "insert into " + TableManager.BlackListTable.TABLE_NAME + " values(?,?)";
         try {
             database.execSQL(sql, new Object[]{
-                    blackList.getName(), blackList.getPhoneNumber()});
+                    blackList.getPhoneNumber(), blackList.getName()});
         } catch (SQLException e) {
             e.printStackTrace();
         }
