@@ -16,15 +16,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.menu_app).setOnClickListener(this);
         findViewById(R.id.menu_clear).setOnClickListener(this);
         findViewById(R.id.menu_flux).setOnClickListener(this);
-        findViewById(R.id.menu_pay).setOnClickListener(this);
-        findViewById(R.id.menu_Spam).setOnClickListener(this);
-        findViewById(R.id.menu_virus).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.menu_app:
+                startActivity(new Intent(this, AppManegerActivity.class));
                 break;
             case R.id.menu_clear:
                 startActivity(new Intent(this, ClearActivity.class));

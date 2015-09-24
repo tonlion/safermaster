@@ -30,16 +30,18 @@
             android:name=".ClearActivity"
             android:label="@string/title_activity_clear" />
 
-        <service android:name="com.example.owner.service.ClearService"></service>
+        <service android:name="com.example.owner.service.ClearService" />
+
+        <service android:name="com.example.owner.service.UninstallService"></service>
 
         <activity
             android:name=".CrankActivity"
-            android:label="@string/title_activity_crank"></activity>
-        <activity android:name=".ContactionActivity"></activity>
-        <activity android:name=".BlackListActivity"></activity>
-        <activity android:name=".CallLogActivity"></activity>
-        <activity android:name=".ShortMessageActivity"></activity>
-        <!--监听短信-->
+            android:label="@string/title_activity_crank" />
+        <activity android:name=".ContactionActivity" />
+        <activity android:name=".BlackListActivity" />
+        <activity android:name=".CallLogActivity" />
+        <activity android:name=".ShortMessageActivity" />
+        <!-- 监听短信 -->
         <receiver android:name="com.example.owner.receiver.SMSReceiver">
             <intent-filter android:priority="2000">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
@@ -51,6 +53,10 @@
                 <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".AppManegerActivity"
+            android:label="@string/title_activity_app_maneger"></activity>
     </application>
 
 </manifest>

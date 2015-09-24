@@ -14,6 +14,8 @@ public class RunningProcess {
     private long memorySize;    //所占内存
     private Drawable icon;      //图标
     private boolean isSystem;   //是否系统应用
+    private String version;     //版本号
+    private String packageName; //包名
 
     public RunningProcess() {
     }
@@ -72,5 +74,21 @@ public class RunningProcess {
 
     public boolean isSystem() {
         return isSystem;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
     }
 }

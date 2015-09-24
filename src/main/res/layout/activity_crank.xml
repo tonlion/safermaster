@@ -4,10 +4,39 @@
     android:layout_height="match_parent"
     tools:context="com.example.owner.safermaster.CrankActivity">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/crank_pager"
+    <android.support.v4.app.FragmentTabHost
+        android:id="@android:id/tabhost"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <!--不能用-->
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></FrameLayout>
 
-    </android.support.v4.view.ViewPager>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="45dp" />
+
+            <FrameLayout
+                android:id="@+id/crank_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></FrameLayout>
+        </LinearLayout>
+    </android.support.v4.app.FragmentTabHost>
+
+    <!--  <android.support.v4.view.ViewPager
+          android:id="@+id/crank_pager"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_above="@id/crank_tab">
+
+      </android.support.v4.view.ViewPager>-->
 </RelativeLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:gravity="center_vertical"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="5dp">
+
+    <ImageView
+        android:id="@+id/del_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/android" />
+
+    <TextView
+        android:id="@+id/del_name"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_toRightOf="@id/del_img"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:text="校园通"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/del_version"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/del_name"
+        android:layout_toRightOf="@id/del_img"
+        android:gravity="center_vertical"
+        android:text="1.0"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/del_memorySize"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@id/del_version"
+        android:layout_toRightOf="@id/del_img"
+        android:gravity="center_vertical"
+        android:text="12.30M"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/del_uninstall"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:text="卸载" />
+
+    <ImageView
+        android:id="@+id/del_system"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/tt" />
+</RelativeLayout>

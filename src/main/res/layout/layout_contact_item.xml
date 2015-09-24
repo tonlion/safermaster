@@ -18,15 +18,17 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_below="@id/contact_name"
+        android:ellipsize="end"
         android:gravity="center_vertical"
+        android:lines="1"
         android:text="12345678909"
         android:textSize="16dp" />
 
     <CheckBox
         android:id="@+id/contact_check"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="70dp"
         android:layout_alignParentRight="true"
-        android:gravity="center"
-        android:checked="false" />
+        android:checked="false"
+        android:gravity="center" />
 </RelativeLayout>
