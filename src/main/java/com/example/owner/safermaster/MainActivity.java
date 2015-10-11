@@ -2,6 +2,7 @@ package com.example.owner.safermaster;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,13 +10,17 @@ import android.view.View;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.menu_app).setOnClickListener(this);
+        View view = findViewById(R.id.menu_app);
+        view.setOnClickListener(this);
         findViewById(R.id.menu_clear).setOnClickListener(this);
         findViewById(R.id.menu_flux).setOnClickListener(this);
+        findViewById(R.id.menu_Spam).setOnClickListener(this);
+        findViewById(R.id.menu_virus).setOnClickListener(this);
     }
 
     @Override
@@ -29,6 +34,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.menu_flux:
                 startActivity(new Intent(this, CrankActivity.class));
+                break;
+            case R.id.menu_Spam:
+                startActivity(new Intent(this, DataInfoActivity.class));
+                break;
+            case R.id.menu_virus:
+                startActivity(new Intent(this, CleanActivity.class));
                 break;
         }
     }

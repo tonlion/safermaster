@@ -70,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="1dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF"
+                android:background="#fff"
                 android:gravity="center">
 
                 <ImageView

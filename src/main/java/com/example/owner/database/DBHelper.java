@@ -25,6 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(TableManager.SMSTable.createTable());
         sqLiteDatabase.execSQL(TableManager.PhoneTable.createTable());
         sqLiteDatabase.execSQL(TableManager.BlackListTable.createTable());
+        sqLiteDatabase.execSQL(TableManager.LiuTable.createTable());
     }
 
     @Override

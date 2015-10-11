@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.owner.adapter.CallLogAdapter;
@@ -19,6 +21,7 @@ import java.util.List;
 public class ShortMessageActivity extends AppCompatActivity {
 
     private ListView items;
+    private Button add;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,6 +31,13 @@ public class ShortMessageActivity extends AppCompatActivity {
         List<CallLog> logs = readMessages();
         CallLogAdapter adapter = new CallLogAdapter(this, logs);
         items.setAdapter(adapter);
+        add = (Button) findViewById(R.id.contact_add_to_blackList);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     private List<CallLog> readMessages() {

@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.internal.telephony.ITelephony;
+import com.daimajia.swipe.SwipeLayout;
 import com.example.owner.adapter.DelAppAdapter;
 import com.example.owner.entity.RunningProcess;
 import com.example.owner.service.ClearService;

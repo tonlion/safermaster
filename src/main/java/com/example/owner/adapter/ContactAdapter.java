@@ -62,19 +62,22 @@ public class ContactAdapter extends BaseAdapter {
         final Contaction c = contactions.get(i);
         holder.name.setText(c.getDesplayName());
         holder.number.setText(c.getPhoneNum());
-        if (c.getSelected() == 1) {
+        if (c.isSelected()) {
             holder.check.setChecked(true);
+        } else {
+            holder.check.setChecked(false);
         }
         holder.check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 CheckBox box = (CheckBox) view;
+                c.setSelected(box.isChecked());
                 if (box.isChecked()) {
                     listener.addContact(c);
                 } else {
                     listener.removeContact(c);
                 }
-                c.setSelected(1);
+
             }
         });
         return view;

@@ -69,4 +69,30 @@ public class TableManager {
             return builder.toString();
         }
     }
+
+    public static class LiuTable {
+        public static final String TABLE_NAME = "liuliang";
+        public static final String COL_PHONE_UID = "UID";
+        public static final String COL_APP_NAME = "name";
+        public static final String COL_COME_TYPE = "type";
+        public static final String COL_DATA = "data";
+
+        public static String createTable() {
+            StringBuilder builder = new StringBuilder();
+            builder.append("create table if not exists ");
+            builder.append(TABLE_NAME);
+            builder.append("(");
+            builder.append(COL_PHONE_UID);
+            builder.append(" varchar(20) not null,");
+            builder.append(COL_COME_TYPE);
+            builder.append(" varchar(20) null,");
+            builder.append(COL_APP_NAME);
+            builder.append(" varchar(20) null,");
+            builder.append(COL_DATA);
+            builder.append(" varchar(20) null,");
+            builder.append("primary key(" + COL_PHONE_UID + "," + COL_COME_TYPE + ")");
+            builder.append(")");
+            return builder.toString();
+        }
+    }
 }

@@ -6,14 +6,14 @@ import android.os.Parcelable;
 /**
  * Created by Owner on 2015/9/23.
  */
-public class Contaction implements Parcelable {
+public class Contaction {
     private int contactId; //id
     private String desplayName;//姓名
     private String phoneNum; // 电话号码
     private String sortKey; // 排序用的
     private Long photoId; // 图片id
     private String lookUpKey;
-    private int selected = 0;
+    private boolean selected;
     private String formattedNumber;
     private String pinyin; // 姓名拼音
 
@@ -21,28 +21,14 @@ public class Contaction implements Parcelable {
 
     }
 
-    protected Contaction(Parcel in) {
-        contactId = in.readInt();
-        desplayName = in.readString();
-        phoneNum = in.readString();
-        sortKey = in.readString();
-        lookUpKey = in.readString();
-        selected = in.readInt();
-        formattedNumber = in.readString();
-        pinyin = in.readString();
+
+    public boolean isSelected() {
+        return selected;
     }
 
-    public static final Creator<Contaction> CREATOR = new Creator<Contaction>() {
-        @Override
-        public Contaction createFromParcel(Parcel in) {
-            return new Contaction(in);
-        }
-
-        @Override
-        public Contaction[] newArray(int size) {
-            return new Contaction[size];
-        }
-    };
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
 
     public int getContactId() {
         return contactId;
@@ -70,10 +56,6 @@ public class Contaction implements Parcelable {
 
     public String getPinyin() {
         return pinyin;
-    }
-
-    public int getSelected() {
-        return selected;
     }
 
     public String getSortKey() {
@@ -108,28 +90,8 @@ public class Contaction implements Parcelable {
         this.pinyin = pinyin;
     }
 
-    public void setSelected(int selected) {
-        this.selected = selected;
-    }
-
     public void setSortKey(String sortKey) {
         this.sortKey = sortKey;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(contactId);
-        parcel.writeString(desplayName);
-        parcel.writeString(phoneNum);
-        parcel.writeString(sortKey);
-        parcel.writeString(lookUpKey);
-        parcel.writeInt(selected);
-        parcel.writeString(formattedNumber);
-        parcel.writeString(pinyin);
-    }
 }

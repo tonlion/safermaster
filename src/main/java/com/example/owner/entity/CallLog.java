@@ -10,6 +10,15 @@ public class CallLog {
     private String date;
     private String name;
     private String duration;
+    private boolean isCheck;
+
+    public boolean isCheck() {
+        return isCheck;
+    }
+
+    public void setIsCheck(boolean isCheck) {
+        this.isCheck = isCheck;
+    }
 
     public String getDate() {
         return date;

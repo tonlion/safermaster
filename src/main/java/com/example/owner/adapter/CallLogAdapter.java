@@ -7,7 +7,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.owner.dao.BlackListDao;
+import com.example.owner.dao.GlobalDao;
+import com.example.owner.database.TableManager;
+import com.example.owner.entity.BlackList;
 import com.example.owner.entity.CallLog;
 import com.example.owner.safermaster.R;
 
@@ -55,12 +60,37 @@ public class CallLogAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        CallLog log = logs.get(i);
-        holder.name.setText(log.getName());
         SimpleDateFormat format = new SimpleDateFormat("[MM/dd HH:mm]");
+        final CallLog log = logs.get(i);
+        holder.name.setText(log.getName());
         long time = Long.parseLong(log.getDate());
         String date = format.format(time);
         holder.time.setText(date + log.getType());
+        if (log.isCheck()) {
+            holder.check.setChecked(true);
+        } else {
+            holder.check.setChecked(false);
+        }
+        holder.check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CheckBox box = (CheckBox) view;
+                log.setIsCheck(box.isChecked());
+                BlackListDao blackListDao = new BlackListDao(context);
+                GlobalDao globalDao = new GlobalDao(context, TableManager.BlackListTable.TABLE_NAME);
+                BlackList blackList = new BlackList();
+                blackList.setName(log.getName());
+                blackList.setPhoneNumber(log.getNumber());
+                if (box.isChecked()) {
+                    blackListDao.insertValues(blackList);
+                    Toast.makeText(context, "添加成功", Toast.LENGTH_SHORT).show();
+                } else {
+                    globalDao.deleteUser(new String[]{TableManager.
+                            BlackListTable.COL_PHONE_NUMBER}, new Object[]{log.getNumber()});
+                    Toast.makeText(context, "取消添加", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         return view;
     }
 

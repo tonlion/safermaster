@@ -11,6 +11,9 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
 
     <application
         android:allowBackup="true"
@@ -31,8 +34,7 @@
             android:label="@string/title_activity_clear" />
 
         <service android:name="com.example.owner.service.ClearService" />
-
-        <service android:name="com.example.owner.service.UninstallService"></service>
+        <service android:name="com.example.owner.service.UninstallService" />
 
         <activity
             android:name=".CrankActivity"
@@ -41,6 +43,7 @@
         <activity android:name=".BlackListActivity" />
         <activity android:name=".CallLogActivity" />
         <activity android:name=".ShortMessageActivity" />
+        <activity android:name=".DataInfoActivity" />
         <!-- 监听短信 -->
         <receiver android:name="com.example.owner.receiver.SMSReceiver">
             <intent-filter android:priority="2000">
@@ -54,9 +57,18 @@
             </intent-filter>
         </receiver>
 
+        <service android:name="com.example.owner.service.DataInfoService">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".AppManegerActivity"
-            android:label="@string/title_activity_app_maneger"></activity>
+            android:label="@string/title_activity_app_maneger" />
+        <activity
+            android:name=".CleanActivity"
+            android:label="@string/title_activity_clean"></activity>
     </application>
 
 </manifest>

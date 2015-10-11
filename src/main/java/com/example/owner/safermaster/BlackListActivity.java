@@ -6,9 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.owner.adapter.CacheAdapter;
 import com.example.owner.dao.BlackListDao;
 import com.example.owner.entity.BlackList;
+import com.example.owner.entity.Cache;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,14 +24,17 @@ public class BlackListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_list_view);
         ListView listView = (ListView) findViewById(R.id.list_view);
-        TextView textView = new TextView(this);
         BlackListDao dao = new BlackListDao(this);
         List<BlackList> lists = dao.findAll();
-        String text = "";
+        List<Cache> caches = new ArrayList<>();
         for (BlackList b : lists) {
-            text += b.getName() + "电话" + b.getPhoneNumber() + "\n";
+            Cache cache = new Cache();
+            cache.setAppName(b.getName());
+            cache.setCacheSize(b.getPhoneNumber());
+            cache.setIcon(getResources().getDrawable(R.drawable.android));
+            caches.add(cache);
         }
-        textView.setText(text);
-        listView.addHeaderView(textView);
+        CacheAdapter adapter = new CacheAdapter(caches, this);
+        listView.setAdapter(adapter);
     }
 }
